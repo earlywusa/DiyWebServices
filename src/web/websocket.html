@@ -1,0 +1,24 @@
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <title>Websocket Client</title>
+    </head>
+    <body>
+      <script>
+        var exampleSocket = new WebSocket("ws://localhost:8080");
+        exampleSocket.onopen = function (event) {
+          console.log("connection opened..");
+          exampleSocket.send("Can you hear me?"); 
+        };
+        exampleSocket.onmessage = function (event) {
+          console.log(event.data);
+        }
+
+        function sendMsg(){
+          console.log("send message..");
+          exampleSocket.send("hello hello");
+        }
+      </script>
+      <button onclick="sendMsg()" title="send">send</button>
+    </body>
+    </html>
